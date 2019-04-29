@@ -39,9 +39,9 @@
 }*/
 
 /*
-    METHOD 1 : With Line names
+    METHOD 2 : With Line names
 */
-
+/*
 .challenge {
   display: grid;
   width: 1000px;
@@ -75,5 +75,51 @@
 
   .footer {
     grid-column: col-start 1 / grid-end;
+  }
+}
+*/
+
+/*
+    METHOD 3 : NAME GRID AREAS
+*/
+
+.challenge {
+  display: grid;
+  width: 1000px;
+  margin: 30px auto;
+
+  //header smallbox mainContent footer
+  grid-template-rows: 100px 200px 400px 100px;
+  grid-template-columns: repeat(3, 1fr) 200px;
+  grid-gap: 30px;
+
+  grid-template-areas:
+    "head head head head"
+    "box box box side"
+    "main main main side"
+    "foot foot foot foot";
+
+  & > * {
+    background-color: black;
+    padding: 20px;
+    color: white;
+    font-size: 30px;
+    font-family: sans-serif;
+  }
+
+  .header {
+    grid-area: head;
+  }
+
+  .sidebar {
+    grid-area: side;
+  }
+
+  .main-content {
+    grid-area: main;
+  }
+
+  .footer {
+    grid-area: foot;
   }
 }
